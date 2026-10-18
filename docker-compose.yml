@@ -1,0 +1,29 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: fraud_redis_broker
+    ports:
+      - "6379:6379"
+    restart: always
+
+  api:
+    build: .
+    container_name: fraud_fastapi_edge
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    restart: always
+
+  worker:
+    build: .
+    container_name: fraud_celery_worker
+    command: celery -A worker.celery_app worker --loglevel=info --pool=solo
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    restart: always

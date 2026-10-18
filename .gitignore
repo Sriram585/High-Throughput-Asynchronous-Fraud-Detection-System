@@ -1,0 +1,18 @@
+# Ignore raw datasets anywhere in the project
+data/
+*.csv
+
+# Ignore MLflow local tracking registry and database
+mlruns/
+mlruns.db
+
+# Ignore Python virtual environments and cache
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Ignore IDE metadata
+.vscode/
+.idea/
