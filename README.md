@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # High-Throughput Asynchronous Fraud Detection & XAI Pipeline
 
 An end-to-end, event-driven machine learning inference microservice designed for low-latency financial transaction processing under extreme class imbalance, featuring out-of-band SHAP (SHapley Additive exPlanations) attribution.
@@ -116,3 +117,6 @@ curl -X 'GET' 'http://localhost:8000/status/dc2b2913-8c09-430c-9164-1276711c73a1
   }
 }
 ```
+=======
+# High-Throughput Asynchronous Fraud Detection System
+>>>>>>> f5f68ce5faebae12f7d39a66bbd15f6550f3b71e
